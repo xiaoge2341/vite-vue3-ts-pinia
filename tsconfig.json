@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    // TypeScript 默认会把代码编译为 ECMAScript 3
+    // esnext 表示仅仅校验转换 TypeScript 类型，不进行语法编译
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    // 开启严格模式，这使得对“this”的数据属性进行更严格的推断成为可能
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    // build 校验ts类型
+    "isolatedModules": false,
+    "esModuleInterop": true,
+    "ignoreDeprecations":"5.0",
+    // "suppressImplicitAnyIndexErrors": true, //忽略根据对象key获取对象的报错,eg: obj['key']
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ]
+    },
+    "noEmit": true
+  },
+  // 配置需要校验的文件
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ],
+  // 排除不需要 TypeScript 校验的文件
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
