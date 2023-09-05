@@ -13,7 +13,8 @@
   <button @click="router.push('/news')" >news</button>
   <button @click="router.push('/')" >home</button>
   <button @click="router.push('/home')" >home children</button>
-
+  <br>
+  {{ env }}
   <hr>
   <RouterView></RouterView>
 </template>
@@ -21,6 +22,7 @@
 <script setup lang="ts">
 import HelloWorld from '@/components/HelloWorld.vue'
 import { useRouter } from 'vue-router'
+const env = import.meta.env
 const router = useRouter();
 const a = 222
 </script>

@@ -19,11 +19,11 @@ export default defineConfig(({ command, mode }) => {
     base: './',
     plugins: [
       vue(),
-      visualizer({
-        open: true,
-        gzipSize: true,
-        brotliSize: true,
-      }) as PluginOption
+      // visualizer({
+      //   open: true,
+      //   gzipSize: true,
+      //   brotliSize: true,
+      // }) as PluginOption
     ],
     resolve: {
       alias: {
@@ -57,7 +57,7 @@ export default defineConfig(({ command, mode }) => {
       // build 独有配置
       build: {
         outDir: mode === 'production' ?
-          'dist/production' :
+          'dist/prod' :
           'dist/test',
         rollupOptions: {
           output: {
