@@ -21,6 +21,7 @@
     "postcss": "^8.4.29",
     "postcss-px-to-viewport": "^1.1.1",
     "vue": "^3.3.4",
+    "vue-i18n": "^9.3.0",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
