@@ -15,7 +15,7 @@
     "isolatedModules": false,
     "esModuleInterop": true,
     "ignoreDeprecations":"5.0",
-    // "suppressImplicitAnyIndexErrors": true, //忽略根据对象key获取对象的报错,eg: obj['key']
+    "suppressImplicitAnyIndexErrors": true, //忽略根据对象key获取对象的报错,eg: obj['key']
     "lib": [
       "esnext",
       "dom"

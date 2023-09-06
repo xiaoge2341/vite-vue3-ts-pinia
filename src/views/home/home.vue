@@ -14,6 +14,8 @@
   <button @click="router.push('/')" >home</button>
   <button @click="router.push('/home')" >home children</button>
   <br>
+  {{ $t('app') }}
+  <br>
   {{ env }}
   <hr>
   <RouterView></RouterView>
