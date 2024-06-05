@@ -2,6 +2,7 @@ import { defineConfig, loadEnv, type PluginOption } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import { visualizer } from 'rollup-plugin-visualizer'
+import legacy from '@vitejs/plugin-legacy'
 
 // https://vitejs.dev/config/
 /**
@@ -24,6 +25,9 @@ export default defineConfig(({ command, mode }) => {
       //   gzipSize: true,
       //   brotliSize: true,
       // }) as PluginOption
+      legacy({
+        targets: ['chrome < 60'],
+      }),
     ],
     resolve: {
       alias: {

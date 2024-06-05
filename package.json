@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "vite --mode development",
-    "build:test": "vue-tsc && vite build --mode uat",
+    "build:test": "vite build --mode uat",
     "build:prod": "vue-tsc && vite build --mode production",
     "preview:test": "vite preview --outDir dist/test",
     "preview:prod": "vite preview --outDir dist/prod"
@@ -16,7 +16,7 @@
     "axios": "^1.5.0",
     "crypto-js": "^4.1.1",
     "less": "^4.2.0",
-    "pinia": "^2.1.6",
+    "pinia": "^2.1.7",
     "pinia-plugin-persistedstate": "^3.2.0",
     "postcss": "^8.4.29",
     "postcss-px-to-viewport": "^1.1.1",
@@ -26,8 +26,10 @@
   },
   "devDependencies": {
     "@types/node": "^20.5.9",
+    "@vitejs/plugin-legacy": "^5.4.1",
     "@vitejs/plugin-vue": "^4.2.3",
     "rollup-plugin-visualizer": "^5.9.2",
+    "terser": "^5.31.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vue-tsc": "^1.8.5"
