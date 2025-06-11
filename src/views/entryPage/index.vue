@@ -4,18 +4,11 @@
 	const goLink = (path: string) => {
 		router.push(path)
 	}
-	console.log(
-		router.options.routes.filter(item => {
-			console.log(item.meta)
-			return item.meta?.isNav
-		})
-	)
 	const routerNavList = router.options.routes
 		.filter(item => item.meta?.isNav)
 		.map(v => {
 			return { label: v.meta?.label || v.path, path: v.path }
 		})
-	console.log(routerNavList, 'routerNavList')
 </script>
 <template>
 	<ul class="router-nav">
