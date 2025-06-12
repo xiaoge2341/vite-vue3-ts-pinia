@@ -1,7 +1,42 @@
 import { defineConfig, loadEnv, type PluginOption } from 'vite'
 import path from 'path'
 import vue from '@vitejs/plugin-vue'
+import pxtovw from "postcss-px-to-viewport-8-plugin";
+import autoprefixer from "autoprefixer";
+
 import { visualizer } from 'rollup-plugin-visualizer'
+
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+
+const loder_h5 = pxtovw({
+  unitToConvert: "px",
+  viewportWidth: 750,
+  unitPrecision: 3,
+  propList: ["*"],
+  viewportUnit: "vw",
+  fontViewportUnit: "vw",
+  selectorBlackList: [".ignore", ".hairlines", ".cochattip"],
+  minPixelValue: 1,
+  mediaQuery: false,
+  replace: true,
+  exclude: /(\/|\\)(node_modules|web)(\/|\\)/,
+});
+const loder_web = pxtovw({
+  unitToConvert: "px",
+  viewportWidth: 1920 / 1.2,
+  unitPrecision: 16,
+  propList: ["*"],
+  viewportUnit: "vw",
+  fontViewportUnit: "vw",
+  selectorBlackList: [".ignore", ".hairlines", ".cochattip"],
+  minPixelValue: 1,
+  mediaQuery: false,
+  replace: true,
+  exclude: /(\/|\\)(node_modules|h5)(\/|\\)/,
+});
 
 // https://vitejs.dev/config/
 /**
@@ -24,7 +59,18 @@ export default defineConfig(({ command, mode }) => {
       //   gzipSize: true,
       //   brotliSize: true,
       // }) as PluginOption
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
     ],
+    css: {
+      postcss: {
+        plugins: [autoprefixer, loder_h5, loder_web],
+      },
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
